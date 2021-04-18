@@ -11,18 +11,18 @@ export class CreateBugComponent implements OnInit {
   bug:Bug=new Bug(); //model -stores all form data
   bugArray:Bug[]=[];
   constructor(private bugService:BugService) { }
-  save(){
-    const promise = this.bugService.save(this.bug);
+  saveBug(){
+    const promise = this.bugService.saveBug(this.bug);
     promise.subscribe(response=> {
       console.log(response);
-      alert('user added..')
+      alert('bug added..')
       //this.bugArray.push(Object.assign({}, this.user));
     },
     error=> {
       console.log(error);
       alert('error happenned..')
     })
-    // this.user.firstname = 'John';
+
   }
 
   ngOnInit(): void {
