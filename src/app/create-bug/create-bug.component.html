@@ -46,13 +46,13 @@
 						<label class="control-label col-sm-3  col-md-offset-4" for="Name">Name<span style="color:red">*</span></label>
 						<div class="col-sm-9">
 							<input type="text" class="form-control" id="name"
-								name="name" required>
+								name="name" [(ngModel)]='bug.name' required>
 						</div>
 					</div>
 					<div class="form-group">
 						<label class="control-label col-sm-3  col-md-offset-4" for="pwd">Priority <span style="color:red">*</span></label>
 						<div class="col-sm-9">
-							<select name="priority" class="form-control" id="Priority">
+							<select name="priority" [(ngModel)]='bug.priority' class="form-control" id="Priority">
 							<option value="" disabled selected>Choose value</option>
 								<option value="LOW">LOW</option>
 								<option value="MEDIUM">MEDIUM</option>
@@ -63,7 +63,7 @@
 					<div class="form-group">
 						<label class="control-label col-sm-3  col-md-offset-4 " for="pwd">Type <span style="color:red">*</span></label>
 						<div class="col-sm-9">
-							<select name="type" class="form-control" id="type" required>
+							<select name="type" [(ngModel)]='bug.type' class="form-control" id="type" required>
 								<option value="" disabled selected>Choose value</option>
 								<option value="RUNTIME">RUNTIME</option>
 								<option value="COMPILETIME">COMPILETIME</option>
@@ -78,20 +78,20 @@
 							Date<span style="color:red">*</span>
 						</label>
 						<div class="col-sm-9">
-							<input id="etaid" type="date" class="form-control" />
+							<input id="etaid" type="date" [(ngModel)]='bug.eta' name='etz' class="form-control" />
 						</div>
 					</div>
 					<div class="form-group">
 						<label class="control-label col-sm-3 col-md-offset-4" for="pwd">Module<span style="color:red">*</span></label>
 						<div class="col-sm-9">
-							<input type="text" class="form-control" id="module"
+							<input type="text" class="form-control" id="module" [(ngModel)]='bug.module'
 								name="module" required>
 						</div>
 					</div>
 					<div class="form-group">
 						<label class="control-label col-sm-10 col-md-offset-4" for="pwd">buildVersion <span style="color:red">*</span></label>
 						<div class="col-sm-9">
-							<input type="text" class="form-control" id="submit"
+							<input type="text" class="form-control" id="submit" [(ngModel)]='bug.buildVersion'
 								name="buildVersion">
 						</div>
 					</div>
@@ -101,7 +101,7 @@
 					<div class="form-group">
 						<label class="control-label col-sm-3 col-md-offset-2" for="pwd">Status <span style="color:red">*</span></label>
 						<div class="col-sm-9">
-							<select name="status" class="form-control" id="Status">
+							<select name="status" class="form-control" [(ngModel)]='bug.status' id="Status">
 								<option value="" disabled selected>Choose value</option>
 								<option value="NEW">NEW</option>
 								<option value="ASSIGNED">ASSIGNED</option>
@@ -125,7 +125,7 @@
 						<div class="form-group">
 							<label class="control-label col-sm-3 col-md-offset-2" for="pwd">Severity <span style="color:red">*</span></label>
 							<div class="col-sm-9">
-								<select name="severity" class="form-control" id="severity">
+								<select name="severity" class="form-control" id="severity" [(ngModel)]='bug.severity'>
 								<option value="" disabled selected>Choose value</option>
 									<option value="LOW">LOW</option>
 									<option value="MILD">MILD</option>
@@ -138,7 +138,7 @@
 								Id<span style="color:red">*</span>
 							</label>
 							<div class="col-sm-9">
-								<input type="text" class="form-control" id="project"
+								<input type="text" class="form-control" id="project" [(ngModel)]='bug.projectId'
 									name="projectId" required>
 							</div>
 
@@ -146,14 +146,14 @@
 								<label class="control-label col-sm-3 col-md-offset-2" for="pwd">Synopsis<span style="color:red">*</span></label>
 								<div class="col-sm-9">
 									<textarea minlength="5" maxlength="50" class="form-control"
-                    placeholder="Please type your comment in less than 50 characters" id="synopsis" name="synopsis" required
+                    placeholder="Please type your comment in less than 50 characters" id="synopsis"  [(ngModel)]='bug.synopsis' name="synopsis" required
                     rows="2"></textarea>
 								</div>
 							</div>
 							<div class="form-group">
 								<label class="control-label col-sm-3 col-md-offset-2" for="pwd">Product<span style="color:red">*</span></label>
 								<div class="col-sm-9">
-									<input type="text" class="form-control" id="product"
+									<input type="text" class="form-control" id="product" [(ngModel)]='bug.product'
 										 name="product" required>
 								</div>
 							</div>
@@ -161,7 +161,7 @@
 								<label class="control-label col-sm-3 col-md-offset-4" for="pwd">Description<span style="color:red">*</span></label>
 								<div class="col-sm-9">
 									<textarea minlength="5" maxlength="100" class="form-control"
-                    placeholder="Please type your comment in less than 100 characters" id="description" name="description" required
+                    placeholder="Please type your comment in less than 100 characters" id="description" [(ngModel)]='bug.description' name="description" required
                     rows="2"></textarea>
 								</div>
 							</div>

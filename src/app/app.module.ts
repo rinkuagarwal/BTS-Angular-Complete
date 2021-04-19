@@ -5,12 +5,16 @@ import {FormsModule} from '@angular/forms';
 import { AppComponent } from './app.component';
 import { HeaderComponent } from './header/header.component';
 import { CreateBugComponent } from './create-bug/create-bug.component';
+import { GetBugComponent } from './get-bug/get-bug.component';
+import { HomeComponent } from './home/home.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     HeaderComponent,
-    CreateBugComponent
+    CreateBugComponent,
+    GetBugComponent,
+    HomeComponent
   ],
   imports: [
     BrowserModule, FormsModule, HttpClientModule,
