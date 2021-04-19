@@ -15,4 +15,22 @@ export class BugService {
   getBugs(){
     return this.http.get(URL);
   }
+
+  getBug(name:any){
+    return this.http.get(URL+'name/'+ name, {
+      headers: {
+        "content-type": 'application/json',
+        reponseType: 'text'
+      }
+      });
+  }
+  getBugbyStatus(status:any){
+    return this.http.get(URL+'status/'+ status, {
+      headers: {
+        "content-type": 'application/json',
+        reponseType: 'text'
+      }
+      });
+  }
 }
+

@@ -39,32 +39,32 @@
     </nav>
   </header>
 
-	<div id="background"  class="jumbotron" style="padding-top: 24px">
-	<p class="para1"  style="padding-left: 24px">Get Bug</p>
+  <div id="background"  class="jumbotron" style="padding-top: 24px">
+    <p class="para1"  style="padding-left: 24px">Get Bug</p>
 
 
-  <form id="getBug">
+    <form id="getBug">
       <div class="center" id="box">
         <table class="table">
           <tr>
-            <td>Bug Name:<span style="color:red">*</span></td>
-						<td><input id="bugName" placeholder="" [(ngModel)]='bug.name'required></td>
+            <td>BugName:<span style="color:red">*</span></td>
+						<td><input id="bugName" placeholder="" [(ngModel)]='bug.name' name="name" required></td>
 					</tr>
 				</table>
 
-				<a class="btn btn-first" href="#">Search</a>
+				<button class="button" (click)='getBug(bug.name)'>Search</button>
       </div>
 
 
 
-		<br> <br>
-		<div class="table-responsive">
+      <br> <br>
+      <div class="table-responsive">
 
-			<table class=" table table-bordered "
+        <table class=" table table-bordered "
 				style="border: 2px solid #000000; margin-top: 50px">
 				<thead style="background-color:grey; color:white">
 					<td scope="col" style="border: 2px solid #000000;">Name</td>
-					<td scope="col" style="border: 2px solid #000000;">Status</td>
+					<td scope="col" style="border: 2px solid #000000;">Status <input id="Status" placeholder="" [(ngModel)]='bug.status' name="status" required><button (click)='getBugbyStatus(bug.status)'>Search</button></td>
 					<td scope="col" style="border: 2px solid #000000;">Priority</td>
 					<td scope="col" style="border: 2px solid #000000;">Type</td>
 					<td scope="col" style="border: 2px solid #000000;">BuildVersion</td>
@@ -75,9 +75,9 @@
 					<td scope="col" style="border: 2px solid #000000;">Product</td>
 					<td scope="col" style="border: 2px solid #000000;">Estimated Date</td>
 				</thead>
-        <tbody id='bugsTable' style="border: 2px solid #000000;">
+        <tbody id='bugsTable' style="border: 2px solid #000000;width:auto">
 
-            <tr *ngFor='let bug1 of bugArray; index as i'>
+          <tr *ngFor='let bug1 of bugArray; index as i'>
               <td><a [href]='bug1.name'>{{bug1.name}}</a></td>
               <td >{{bug1.status}}</td>
               <td>{{bug1.priority}}</td>
@@ -93,23 +93,24 @@
 
             </tr>
 
-        </tbody>
-			</table>
-		</div>
-		<br> <br>
+          </tbody>
+        </table>
+      </div>
+      <br> <br>
 		</form>
+  </div>
 		<br>
 		<div>
-		<footer class="page-footer font-small blue">
+      <footer class="page-footer font-small blue">
 
-			<div class="col-lg-12 col-md-12 text-center">
-				<div class="footer-copyright text-center py-3">
-					© 2021 Copyright: <a href="http://localhost:8081/index.html">ServerMonks</a>
-				</div>
+        <div class="col-lg-12 col-md-12 text-center">
+          <div class="footer-copyright text-center py-3">
+            © 2021 Copyright: <a href="http://localhost:8081/index.html">ServerMonks</a>
+          </div>
 			</div>
 		</footer>
 	</div>
-</div>
+
 </body>
 
 

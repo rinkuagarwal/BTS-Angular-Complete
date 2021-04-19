@@ -11,7 +11,38 @@ export class GetBugComponent implements OnInit {
   bug:Bug=new Bug(); //model -stores all form data
   bugArray:any;
   constructor(private bugService:BugService) { }
+getBug(name:any)
+{
+this.bugService.getBug(name).subscribe(response=>
+  {
+    this.bugArray=[response];
+    console.log(response);
+    alert('bug shown....');
 
+  },
+  error=>{
+    console.log(error);
+    alert('error happened....');
+
+  }
+  )
+}
+getBugbyStatus(status:any)
+{
+this.bugService.getBugbyStatus(status).subscribe(response=>
+  {
+    this.bugArray=response;
+    console.log(response);
+    alert('bug shown....');
+
+  },
+  error=>{
+    console.log(error);
+    alert('error happened....');
+
+  }
+  )
+}
   ngOnInit(): void {
     const observable = this.bugService.getBugs();
     observable.subscribe(response => {
