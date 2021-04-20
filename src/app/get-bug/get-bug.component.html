@@ -18,62 +18,44 @@
 </head>
 
 <body>
-
-
-  <div id="background"  class="jumbotron" style="padding-top: 24px">
-    <p class="para1"  style="padding-left: 24px">Get Bug</p>
-
-
+  <div id="background"  class="jumbotron" style="padding-top: 20px;padding-left: 60px">
+    <p class="para1"  >Get Bug</p>
     <form id="getBug">
-      <div class="center" id="box">
-        <table class="table">
-          <tr>
-            <td>BugName:<span style="color:red">*</span></td>
-            <td><input id="bugName" placeholder="" [(ngModel)]='bug.name' name="name" required></td>
-            <td>	<button class="button" (click)='getBug(bug.name)'>Search</button></td>
-          </tr>
-          <tr>
-            <td>BugStatus:<span style="color:red">*</span></td>
-            <td><input id="Status" placeholder="" [(ngModel)]='bug.status' name="status" required></td>
-            <td><button class="button" (click)='getBugbyStatus(bug.status)'>Search</button></td>
-          </tr>
-				</table>
+      <div class="form-group row">
 
+        <div class="col-sm-6">
+          BugName:<span style="color:red">*</span>
+          <input id="bugName" placeholder="" [(ngModel)]='bug.name' name="name" required>
+          <button class="button" (click)='getBug(bug.name)'>Search</button>
+        </div>
+
+        <div class="col-sm-6">
+          BugStatus:<span style="color:red">*</span>
+          <input id="Status" placeholder="" [(ngModel)]='bug.status' name="status" required>
+          <button class="button" (click)='getBugbyStatus(bug.status)'>Search</button>
+        </div>
 
       </div>
-
-
-
-      <br> <br>
       <div class="table-responsive">
-
         <table class=" table table-bordered "
-				style="border: 2px solid #000000; margin-top: 50px">
+				style="border: 2px solid #000000; margin-top: 20px;width:100%">
 				<thead style="background-color:grey; color:white">
-					<td scope="col" style="border: 2px solid #000000;">Name</td>
-					<td scope="col" style="border: 2px solid #000000;">Status </td>
-					<td scope="col" style="border: 2px solid #000000;">Priority</td>
-					<td scope="col" style="border: 2px solid #000000;">Type</td>
-					<td scope="col" style="border: 2px solid #000000;">BuildVersion</td>
-					<td scope="col" style="border: 2px solid #000000;">Synopsis</td>
-					<td scope="col" style="border: 2px solid #000000;">Severity</td>
-					<td scope="col" style="border: 2px solid #000000;">ProjectId</td>
-					<td scope="col" style="border: 2px solid #000000;">Module</td>
-					<td scope="col" style="border: 2px solid #000000;">Product</td>
-					<td scope="col" style="border: 2px solid #000000;">Estimated Date</td>
+					<td scope="col" style="border: 2px solid #000000;"><b>Name</b></td>
+					<td scope="col" style="border: 2px solid #000000;"><b>Status</b> </td>
+					<td scope="col" style="border: 2px solid #000000;"><b>Priority</b></td>
+					<td scope="col" style="border: 2px solid #000000;"><b>Type</b></td>
+					<td scope="col" style="border: 2px solid #000000;"><b>ProjectId</b></td>
+					<td scope="col" style="border: 2px solid #000000;"><b>Product</b></td>
+					<td scope="col" style="border: 2px solid #000000;"><b>Estimated Date</b></td>
 				</thead>
-        <tbody id='bugsTable' style="border: 2px solid #000000;width:auto">
+        <tbody id='bugsTable' style="border: 2px solid #000000;width:100%;background-color: rgb(236, 233, 233)">
 
           <tr *ngFor='let bug1 of bugArray; index as i'>
-              <td><a [href]='bug1.name'>{{bug1.name}}</a></td>
+              <td>{{bug1.name}}</td>
               <td >{{bug1.status}}</td>
               <td>{{bug1.priority}}</td>
               <td>{{bug1.type}}</td>
-              <td>{{bug1.buildVersion}}</td>
-              <td>{{bug1.synopsis}}</td>
-              <td>{{bug1.severity}}</td>
               <td>{{bug1.projectId}}</td>
-              <td>{{bug1.module}}</td>
               <td>{{bug1.product}}</td>
               <td>{{bug1.eta |date:'M/d/yy'}}</td>
 
