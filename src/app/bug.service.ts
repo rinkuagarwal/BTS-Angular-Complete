@@ -32,5 +32,11 @@ export class BugService {
       }
       });
   }
+  update(bug: Bug, id: string) {
+    return this.http.put(URL+id, bug, {
+      headers: { "content-type": 'application/json' }
+
+    });
+  }
 }
 
