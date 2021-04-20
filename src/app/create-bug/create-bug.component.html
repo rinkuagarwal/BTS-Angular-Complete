@@ -127,8 +127,9 @@
 								<label class="control-label col-sm-3 col-md-offset-2" for="pwd">Synopsis<span style="color:red">*</span></label>
 								<div class="col-sm-9">
 									<textarea minlength="5" maxlength="50" class="form-control"
-                    placeholder="Please type your comment in less than 50 characters" id="synopsis"  [(ngModel)]='bug.synopsis' name="synopsis" required
+                    placeholder="Please type your comment in less than 50 characters" rows='2' id="synopsis"  [(ngModel)]='bug.synopsis'(ngModelChange)="valueChange(bug.synopsis.length)" name="synopsis" required
                     rows="2"></textarea>
+                    <span class="remaning">{{remainingText}}</span>
 								</div>
 							</div>
 							<div class="form-group">

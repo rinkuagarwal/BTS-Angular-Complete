@@ -9,11 +9,18 @@ import { GetBugComponent } from './get-bug/get-bug.component';
 import { HomeComponent } from './home/home.component';
 import { FooterComponent } from './footer/footer.component';
 import { RouterModule, Routes } from '@angular/router';
+import { UpdateBugComponent } from './update-bug/update-bug.component';
+import { AboutUsComponent } from './about-us/about-us.component';
+import { ContactUsComponent } from './contact-us/contact-us.component';
+
 const appRoutes: Routes = [
   { path: '', component: HomeComponent }, //default, Home page
   { path: 'create', component: CreateBugComponent },
   { path: 'get', component: GetBugComponent },
-];
+  { path: 'update', component: UpdateBugComponent },
+  { path: 'about', component: AboutUsComponent },
+  { path: 'help', component: ContactUsComponent },
+]
 @NgModule({
   declarations: [
     AppComponent,
@@ -21,7 +28,10 @@ const appRoutes: Routes = [
     CreateBugComponent,
     GetBugComponent,
     HomeComponent,
-    FooterComponent
+    FooterComponent,
+    UpdateBugComponent,
+    AboutUsComponent,
+    ContactUsComponent
   ],
   imports: [RouterModule.forRoot(
     appRoutes,
