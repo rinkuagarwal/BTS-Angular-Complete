@@ -10,22 +10,33 @@ export class GetBugComponent implements OnInit {
   title:string = 'Get Bug';
   bug:Bug=new Bug(); //model -stores all form data
   bugArray:any;
+  bugResult: any;
+
   constructor(private bugService:BugService) { }
 getBug(name:any)
 {
-this.bugService.getBug(name).subscribe(response=>
-  {
-    this.bugArray=[response];
-    console.log(response);
-    alert('bug found....');
+  const bugName =name;
 
-  },
-  error=>{
-    console.log(error);
-    alert('error happened....');
+    if(bugName!=null){
+      const promise = this.bugService.getBug(bugName);
+    promise.subscribe(response => {
+      this.bugResult = [response];
+      if (this.bugResult!=0) {
+        this.bugArray = this.bugResult;
+        console.log(response);
 
-  }
-  )
+      }
+      else {
+        alert("Record not found");
+      }
+    },
+      error => {
+        console.log(error);
+        alert('error happened..')
+      });
+    }
+
+
 }
 getBugbyStatus(status:any)
 {
@@ -38,7 +49,7 @@ this.bugService.getBugbyStatus(status).subscribe(response=>
   },
   error=>{
     console.log(error);
-    alert('error happened....');
+    alert('No data found....');
 
   }
   )
