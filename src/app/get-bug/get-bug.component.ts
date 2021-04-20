@@ -17,7 +17,7 @@ this.bugService.getBug(name).subscribe(response=>
   {
     this.bugArray=[response];
     console.log(response);
-    alert('bug shown....');
+    alert('bug found....');
 
   },
   error=>{
@@ -33,7 +33,7 @@ this.bugService.getBugbyStatus(status).subscribe(response=>
   {
     this.bugArray=response;
     console.log(response);
-    alert('bug shown....');
+    alert('bug found....');
 
   },
   error=>{
