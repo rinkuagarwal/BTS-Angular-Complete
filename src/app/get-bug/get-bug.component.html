@@ -31,8 +31,24 @@
 
         <div class="col-sm-6">
           BugStatus:<span style="color:red">*</span>
-          <input id="Status" placeholder="" [(ngModel)]='bug.status' name="status" required>
+          <select id="Status" [(ngModel)]='bug.status' name="status"  required>
+            <option value="NEW" selected>NEW</option>
+            <option value='ASSIGNED'>ASSIGNED</option>
+            <option value='OPEN'>OPEN</option>
+            <option value='FIXED'>FIXED</option>
+            <option value='PENDING_RETEST'>PENDING_RETEST</option>
+            <option value='RETEST'>RETEST</option>
+            <option value='REOPEN'>REOPEN</option>
+            <option value='VERIFIED'>VERIFIED</option>
+            <option value='CLOSED'>CLOSED</option>
+            <option value='REJECTED'>REJECTED</option>
+            <option value='DUPLICATED'>DUPLICATE</option>
+            <option value='DEFERRED'>DEFERRED</option>
+            <option value='NOT_A_BUG'>NOT_A_BUG</option>
+          </select>
+
           <button class="button" (click)='getBugbyStatus(bug.status)'>Search</button>
+
         </div>
 
       </div>
