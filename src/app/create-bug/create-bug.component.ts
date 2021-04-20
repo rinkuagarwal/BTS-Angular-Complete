@@ -10,11 +10,16 @@ export class CreateBugComponent implements OnInit {
   title:string = 'Create Bug';
   bug:Bug=new Bug(); //model -stores all form data
   bugArray:Bug[]=[];
-  remainingText: number |unknown;
+  remainingText: number |undefined;
+  remainingText1:number |undefined;
   constructor(private bugService:BugService) { }
   valueChange(value: number) {
     this.remainingText = 50 - value;
    }
+   valueChange1(value: number) {
+    this.remainingText1 = 100 - value;
+   }
+
   saveBug(){
     const promise = this.bugService.saveBug(this.bug);
     promise.subscribe(response=> {
