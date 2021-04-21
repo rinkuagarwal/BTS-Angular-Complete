@@ -6,13 +6,16 @@ import { BugService } from '../bug.service';
   templateUrl: './get-bug.component.html',
   styleUrls: ['./get-bug.component.css']
 })
-export class GetBugComponent implements OnInit {
+export class GetBugComponent implements OnInit {//controller
   title:string = 'Get Bug';
   bug:Bug=new Bug(); //model -stores all form data
   bugArray:any;
   bugResult: any;
 
   constructor(private bugService:BugService) { }
+  reloadPage() {
+    window.location.reload();
+ }
 getBug(name:any)
 {
   const bugName =name;
@@ -63,6 +66,9 @@ getBugbyStatus(status:any)
     observable.subscribe(response => {
       console.log(response);
       this.bugArray = response;
+      if (this.bugArray[0] == undefined) {
+        return alert("No Records available  currently from server");
+      }
      });
   }
 

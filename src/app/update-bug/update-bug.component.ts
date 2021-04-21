@@ -7,16 +7,18 @@ import { BugService } from '../bug.service';
   templateUrl: './update-bug.component.html',
   styleUrls: ['./update-bug.component.css']
 })
-export class UpdateBugComponent implements OnInit {
+export class UpdateBugComponent implements OnInit {//controller
   title:string = 'Create Bug';
   bug:Bug=new Bug(); //model -stores all form data
   bugArray:Bug[]=[];
+
   constructor(private bugService:BugService) { }
+
   updateBug()
   {const promise = this.bugService.update(this.bug,this.bug.id);
     promise.subscribe(response=> {
       console.log(response);
-      alert('Bug added..')
+      alert('Bug updated..')
 
     },
     error=> {
@@ -27,6 +29,7 @@ export class UpdateBugComponent implements OnInit {
 
   }
   ngOnInit(): void {
+
   }
 
 }
