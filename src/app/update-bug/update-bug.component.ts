@@ -16,8 +16,6 @@ export class UpdateBugComponent implements OnInit {
   {const promise = this.bugService.update(this.bug,this.bug.id);
     promise.subscribe(response=> {
       console.log(response);
-
-
       alert('Bug added..')
 
     },
