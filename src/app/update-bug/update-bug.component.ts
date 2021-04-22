@@ -10,10 +10,32 @@ import { BugService } from '../bug.service';
 export class UpdateBugComponent implements OnInit {//controller
   title:string = 'Create Bug';
   bug:Bug=new Bug(); //model -stores all form data
-  bugArray:Bug[]=[];
+
+  bugArray:any;
+  bugResult:any;
+  name:String="";
 
   constructor(private bugService:BugService) { }
-
+  getBug() {
+    const bugName = this.name.trim();
+    if (bugName) {
+      const promise = this.bugService.getBug(bugName);
+      promise.subscribe(response => {
+        this.bugResult = response;
+        console.log(this.bugResult);
+        if(this.bugResult){
+            this.bug=this.bugResult;
+          }
+        else{
+          alert("Bug Name not in records");
+        }
+      },
+        error => {
+          console.log(error);
+          alert('error happened..')
+        })
+    }
+  }
   updateBug()
   {const promise = this.bugService.update(this.bug,this.bug.id);
     promise.subscribe(response=> {

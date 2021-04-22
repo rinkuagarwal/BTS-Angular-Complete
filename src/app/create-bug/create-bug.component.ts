@@ -29,7 +29,7 @@ export class CreateBugComponent implements OnInit {//controller
     },
     error=> {
       console.log(error);
-      alert('error happenned..')
+      alert('Form invalid..')
     })
 
   }

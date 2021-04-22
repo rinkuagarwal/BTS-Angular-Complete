@@ -7,6 +7,9 @@ const URL='http://localhost:8081/bug/'
 })
 export class BugService {
   constructor(private http: HttpClient) { }
+  delete(bugid:number  ){
+    return this.http.delete(URL+bugid);
+  }
   //service for create bug
   saveBug(bug: Bug) {
     return this.http.post(URL,bug, {

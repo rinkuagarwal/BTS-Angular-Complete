@@ -16,6 +16,22 @@ export class GetBugComponent implements OnInit {//controller
   reloadPage() {
     window.location.reload();
  }
+ deleteBug(id:number, index:number){
+  var txt;
+  var r = confirm("Press OK to delete the bug " + name);
+  if (r == true) {
+  const observable = this.bugService.delete(id);
+  observable.subscribe(response=> this.bugArray.splice(index,1));
+  alert("Bug Deleted Successfully");
+}
+else{
+
+    alert('Bug not deleted..');
+  }
+}
+
+
+
 getBug(name:any)
 {
   const bugName =name;
