@@ -29,7 +29,7 @@ export class CreateBugComponent implements OnInit {//controller
     },
     error=> {
       console.log(error);
-      alert('Form invalid..')
+      alert('Mandatory fields are required to be filled..')
     })
 
   }

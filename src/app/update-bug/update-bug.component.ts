@@ -16,10 +16,10 @@ export class UpdateBugComponent implements OnInit {//controller
   name:String="";
 
   constructor(private bugService:BugService) { }
-  getBug() {
+  getBugbyName() {
     const bugName = this.name.trim();
     if (bugName) {
-      const promise = this.bugService.getBug(bugName);
+      const promise = this.bugService.getBugbyName(bugName);
       promise.subscribe(response => {
         this.bugResult = response;
         console.log(this.bugResult);
@@ -45,7 +45,7 @@ export class UpdateBugComponent implements OnInit {//controller
     },
     error=> {
       console.log(error);
-      alert('error happenned..')
+      alert('Not updated..')
     })
 
 

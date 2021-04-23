@@ -11,10 +11,10 @@ export class Bug{
   description:string='';
   eta:Date=new Date();
   id:string='';
-  priority:PRIORITY=PRIORITY.LOW;
-  type:TYPE=TYPE.COMPILETIME;
-  status:STATUS=STATUS.NEW;
-  severity:SEVERITY=SEVERITY.MILD;
+  priority:string='LOW';
+  type:string='COMPILETIME';
+  status:string='NEW';
+  severity:string='MILD';
   buildVersion:string='';
 }
 

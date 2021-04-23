@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
+import { HttpClient,HttpHeaders } from '@angular/common/http';
 import { Bug } from './Bug';
 const URL='http://localhost:8081/bug/'
 @Injectable({
@@ -9,6 +9,16 @@ export class BugService {
   constructor(private http: HttpClient) { }
   delete(bugid:number  ){
     return this.http.delete(URL+bugid);
+  }
+
+
+  getBugbyStatusAndName(name:string,status:string){
+    return this.http.get(URL+'search/'+ name+'?status='+status, {
+      headers: {
+        "content-type": 'application/json',
+        reponseType: 'text'
+      }
+      });
   }
   //service for create bug
   saveBug(bug: Bug) {
@@ -21,7 +31,7 @@ export class BugService {
     return this.http.get(URL);
   }
 //service for get bug by name
-  getBug(name:any){
+  getBugbyName(name:any){
     return this.http.get(URL+'name/'+ name, {
       headers: {
         "content-type": 'application/json',

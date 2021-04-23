@@ -18,7 +18,7 @@
 </head>
 
 <body>
-  <div id="background"  class="jumbotron" style="padding-top: 20px;padding-left: 60px">
+  <div id="background"  class="jumbotron" style="padding-top: 20px;padding-left: 30px">
     <p class="para1"  >Get Bug</p>
     <form id="getBug">
       <div class="form-group row">
@@ -26,7 +26,7 @@
         <div class="col-sm-6">
           BugName:
           <input id="bugName" placeholder="" [(ngModel)]='bug.name' name="name" required>
-          <button class="button"  (click)='getBug(bug.name)'>Search</button>
+          <button class="button"  (click)='getBugbyName(bug.name)'>Search</button>
         </div>
 
         <div class="col-sm-6">
@@ -50,7 +50,11 @@
           <button class="button" (click)='getBugbyStatus(bug.status)'>Search</button>
           <button class="refresh" (click)="reloadPage()" ><img src="http://simpleicon.com/wp-content/uploads/refresh.png" style="width: 20px; height: 20px;"></button>
         </div>
-
+ <!-- <label >Search by Status and Name</label><br> -->
+ <br>
+ <br>
+ <br>
+        <button class="button" (click)='getBugbyNameStatus()' style="width:97%">Search by Name and Status</button>
       </div>
       <div class="table-responsive">
         <table class=" table table-bordered "
@@ -75,7 +79,7 @@
               <td>{{bug1.projectId}}</td>
               <td>{{bug1.product}}</td>
               <td>{{bug1.eta |date:'M/d/yy'}}</td>
-              <td><button (click)='this.deleteBug(bug1.id, i)'>X</button></td>
+              <td><button style="color:red"(click)='this.deleteBug(bug1.id, i)'>X</button></td>
 
 
             </tr>

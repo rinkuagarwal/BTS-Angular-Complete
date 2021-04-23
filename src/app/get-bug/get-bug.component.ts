@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Bug } from '../Bug';
 import { BugService } from '../bug.service';
+import { STATUS } from '../STATUS';
 @Component({
   selector: 'app-get-bug',
   templateUrl: './get-bug.component.html',
@@ -11,8 +12,29 @@ export class GetBugComponent implements OnInit {//controller
   bug:Bug=new Bug(); //model -stores all form data
   bugArray:any;
   bugResult: any;
-
+  bugList: any;
   constructor(private bugService:BugService) { }
+  getBugbyNameStatus() {
+    let status = (<HTMLInputElement>document.getElementById('Status')).value;
+      let name = (<HTMLInputElement>document.getElementById('bugName')).value;
+    const promise = this.bugService.getBugbyStatusAndName(name, status);
+        promise.subscribe(response => {
+        console.log(response);
+          this.bugList = response;
+          if (this.bugList!=0) {
+            this.bugArray = this.bugList;
+          }
+          else {
+            alert("No Bug with Name : " + name + " and Status : " + status + " found");
+            this.bugArray = [];
+          }
+        },
+          error => {
+            alert('error happened..')
+          })
+      }
+
+
   reloadPage() {
     window.location.reload();
  }
@@ -32,12 +54,12 @@ else{
 
 
 
-getBug(name:any)
+getBugbyName(name:any)
 {
   const bugName =name;
 
     if(bugName!=null){
-      const promise = this.bugService.getBug(bugName);
+      const promise = this.bugService.getBugbyName(bugName);
     promise.subscribe(response => {
       this.bugResult = [response];
       if (this.bugResult!=0) {
@@ -51,7 +73,7 @@ getBug(name:any)
     },
       error => {
         console.log(error);
-        alert('No data found..')
+        alert('error happened..')
       });
     }
 
