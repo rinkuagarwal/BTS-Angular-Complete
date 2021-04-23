@@ -31,8 +31,16 @@ export class BugService {
     return this.http.get(URL);
   }
 //service for get bug by name
+getBugbyUpdatedName(name:any){
+  return this.http.get(URL+'name/'+ name, {
+    headers: {
+      "content-type": 'application/json',
+      reponseType: 'text'
+    }
+    });
+}
   getBugbyName(name:any){
-    return this.http.get(URL+'name/'+ name, {
+    return this.http.get(URL+'/'+ name, {
       headers: {
         "content-type": 'application/json',
         reponseType: 'text'

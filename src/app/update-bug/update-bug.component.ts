@@ -19,7 +19,7 @@ export class UpdateBugComponent implements OnInit {//controller
   getBugbyName() {
     const bugName = this.name.trim();
     if (bugName) {
-      const promise = this.bugService.getBugbyName(bugName);
+      const promise = this.bugService.getBugbyUpdatedName(bugName);
       promise.subscribe(response => {
         this.bugResult = response;
         console.log(this.bugResult);
